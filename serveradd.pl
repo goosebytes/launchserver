@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 #
-# Creates an AWS instance, adds infrastructure, and a web server from a single script instantallation
+# Creates an AWS instance, adds infrastructure, and a web server from a single script execution
 # Prerequisites:
 # Amazon CLI EC2 Tools Installed
 # CPAN installed
@@ -179,7 +179,7 @@ sub isRunning
 	if ($cnt > 20)
 	{
 		print "ERROR: More than 20 attempts were made to get a running status from $instance ... aborting.";
-		exit 1
+		exit 1;
 	}
 	return `ec2-describe-instance-status $instance --filter "system-status.reachability=passed"`;	
 }
